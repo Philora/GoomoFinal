@@ -40,35 +40,4 @@ public class Pricing {
         this.adult = adult;
     }
 
-    private class Adult {
-
-        @SerializedName("price")
-        @Expose
-        private Price price;
-
-        public Price getPrice() {
-            return price;
-        }
-
-        public void setPrice(Price price) {
-            this.price = price;
-        }
-
-    }
-
-    private class Price {
-
-        @SerializedName("amount")
-        @Expose
-        private Integer amount;
-
-        public Integer getAmount() {
-            return amount;
-        }
-
-        public void setAmount(Integer amount) {
-            this.amount = amount;
-        }
-
-    }
 }

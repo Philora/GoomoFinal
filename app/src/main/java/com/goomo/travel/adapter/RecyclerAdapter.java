@@ -1,4 +1,4 @@
-package com.goomo.travel;
+package com.goomo.travel.adapter;
 
 
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.goomo.travel.R;
 import com.goomo.travel.model.FlightSearchData;
 
 import java.util.List;
@@ -36,9 +37,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         holder.origin.setText(myPojo.getmOrigin());
         holder.dest.setText(myPojo.getmDestination());
         holder.airlines.setText(myPojo.getmAirlineCode());
+        holder.duration.setText(myPojo.getmDuration());
 
-        /*holder.price.setText(myPojo.getmPrice());
-        holder.duration.setText(myPojo.getmDuration());*/
+//        holder.price.setText(myPojo.getmPrice());
     }
 
     @Override

@@ -12,7 +12,6 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.goomo.travel.model.FlightSearchResponse;
-import com.goomo.travel.model.Goomo;
 import com.goomo.travel.model.SearchTrackResponse;
 import com.goomo.travel.view.FlightResultsActivity;
 
@@ -29,6 +28,7 @@ public class RemoteAPI {
     private RequestQueue requestQueue;
     private Context context;
 
+    String jsonURL = "https://pre-client-api.goomo.team/v1/flights/one_way/search";
 
     public RemoteAPI(Context context) {
         GsonBuilder gsonBuilder = new GsonBuilder();
@@ -40,7 +40,6 @@ public class RemoteAPI {
     public void searchFlightApi(final String source,final String destination, final String traveldatte,
                                        final int adultCount, final int childCount,
                                        final String travelClass, final Boolean isIndianResident,final int infantCount) {
-        String jsonURL = "https://pre-client-api.goomo.team/v1/flights/one_way/search";
 
         JsonObjectRequest json_req = new JsonObjectRequest(Request.Method.POST, jsonURL, null, new Response.Listener<JSONObject>() {
 
@@ -95,7 +94,9 @@ public class RemoteAPI {
     }
 
     public void flightResultApi(String searchTrackId) {
+
         String flightUrl = "https://pre-client-api.goomo.team/v1/flights/one_way/"+searchTrackId;
+
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, flightUrl, null, new Response.Listener<JSONObject>() {
 
             @Override
