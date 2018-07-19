@@ -116,17 +116,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void searchFlights(View view) {
-        String strSource = actSource.getText().toString().trim();
-        String strDest = actDesignation.getText().toString().trim();
-        String strDate = txtDate.getText().toString();
+
         String strClass = txtClass.getText().toString();
 
         FlightSearchModel model = new FlightSearchModel();
-        if (!TextUtils.isEmpty(actSource.getText().toString()))
+        if (!TextUtils.isEmpty(actSource.getText().toString())) {
             model.setmSource(actSource.getText().toString());
-        if (!TextUtils.isEmpty(actDesignation.getText().toString()))
+        } if(!TextUtils.isEmpty(actDesignation.getText().toString())) {
             model.setmDestination(actDesignation.getText().toString());
-        if (!TextUtils.isEmpty(txtDate.getText().toString())) {
+        } if (!TextUtils.isEmpty(txtDate.getText().toString())) {
             model.setmTraveldate(txtDate.getText().toString());
             AppData.setTraveldate(txtDate.getText().toString());
         }
@@ -135,9 +133,6 @@ public class MainActivity extends AppCompatActivity {
         model.setmChildCount(0);
         model.setmTravelClass(strClass);
         model.setIndianResient(true);
-
-        Log.d(TAG, "searchFlights: " + strSource + " " + strDest + " " + strDate);
-
 
         goomoViewModel.searchFlights(model);
 

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#1c3b59</color>
+    <color name="colorPrimaryDark">#053158</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="activity_bg">#d3d3d3</color>
+
+    <color name="tabText">#929BA2</color>
+    <color name="stopText">#909B9D</color>
+    <color name="priceText">#1D5671</color>
+    <color name="planeText">#ABB2B8</color>
+    <color name="sourceText">#0E2839</color>
 </resources>

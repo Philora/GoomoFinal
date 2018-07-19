@@ -7,17 +7,18 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-
 import com.goomo.travel.model.FlightSearchData;
 import com.goomo.travel.R;
 import com.goomo.travel.adapter.RecyclerAdapter;
 import com.goomo.travel.model.FlightSearchResponse;
 import com.goomo.travel.model.SearchResult;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 import util.AppData;
 
 public class FlightResultsActivity extends AppCompatActivity {
@@ -40,9 +41,6 @@ public class FlightResultsActivity extends AppCompatActivity {
         adapter = new RecyclerAdapter(pojosList);
         recyclerView.setAdapter(adapter);
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        TextView title = toolbar.findViewById(R.id.textView);
-//        ImageView image = toolbar.findViewById(R.id.imageView);
     }
 
     private void setUpActionBar() {
@@ -56,7 +54,7 @@ public class FlightResultsActivity extends AppCompatActivity {
         if (dataList != null) {
             for (SearchResult result : responseData.getResults()) {
                 actionBar.setTitle(result.getOrigin() + " ➨ " + result.getDestination());
-                actionBar.setSubtitle(AppData.getTraveldate() + " ♟ " + AppData.getAdultCount());
+                actionBar.setSubtitle(parseDateFormat(AppData.getTraveldate()) + " ☺ " + AppData.getAdultCount());  // ♟
                 if (result != null) {
                     FlightSearchData data = new FlightSearchData();
                     if (result.getFlights()!=null&&!result.getFlights().isEmpty()) {
@@ -68,8 +66,10 @@ public class FlightResultsActivity extends AppCompatActivity {
                         data.setmOrigin(result.getFlights().get(0).getOrigin());
                         if (result.getFlights().get(0).getDestination() != null) {
                             data.setmDestination(result.getFlights().get(0).getDestination());
+
                             data.setmArrival(parseDateString(result.getFlights().get(0).getArrivalDatetime()));
                             data.setmDeparture(parseDateString(result.getFlights().get(0).getDepartureDatetime()));
+
                             if (result.getFlights().get(0).getAirlineCode() != null) {
                                 data.setmAirlineCode(result.getFlights().get(0).getAirlineCode());
                                 data.setmDuration(parseTime(result.getFlights().get(0).getTravelDurationInMinutes()));
@@ -77,7 +77,7 @@ public class FlightResultsActivity extends AppCompatActivity {
                         }
                     }
                     if(result.getPricing()!=null){
-                        data.setmPrice("Rs." + result.getPricing().getAdult().getPrice().getAmount());
+                        data.setmPrice("" +result.getPricing().getAdult().getPrice().getAmount());
                     }
                     dataList.add(data);
                 }
@@ -89,10 +89,10 @@ public class FlightResultsActivity extends AppCompatActivity {
 
     private String parseDateString(String dateTimeText){
         if(!TextUtils.isEmpty(dateTimeText)) {
-            String arrTime[] = dateTimeText.split("T", 2);
-            String arrivalZone = arrTime[1];
-            String arrivalTimeZone[] = arrivalZone.split(":00+", 2);
-            return arrivalTimeZone[0];
+            String dateTime[] = dateTimeText.split("T", 2);
+            String timeZone = dateTime[1];
+            String timePeriod[] = timeZone.split(":00+", 2);
+            return timePeriod[0];
         }
         return null;
     }
@@ -104,12 +104,29 @@ public class FlightResultsActivity extends AppCompatActivity {
             long minute = travelTimeInMinutes - TimeUnit.HOURS.toMinutes(hours);
 
             if (hours != 0 && minute != 0) {
-                return hours + " h " + minute + " m";
+                return hours + " h " + minute + " min";
             } else if (hours != 0) {
                 return hours + " h";
             } else if (minute != 0) {
-                return minute + " m";
+                return minute + " min";
             }
+        }
+        return null;
+    }
+
+    private String parseDateFormat(String dateFormat){
+        if(!TextUtils.isEmpty(dateFormat)) {
+            SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date myDate = null;
+            try {
+                myDate = dateFormatter.parse(dateFormat);
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            SimpleDateFormat timeFormat = new SimpleDateFormat("dd MMM");
+            String finalDate = timeFormat.format(myDate);
+            return finalDate;
         }
         return null;
     }
