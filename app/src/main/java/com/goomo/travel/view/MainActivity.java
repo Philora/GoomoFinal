@@ -1,5 +1,6 @@
 package com.goomo.travel.view;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
@@ -26,6 +28,8 @@ import com.goomo.travel.R;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
+import util.AppData;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -106,6 +110,9 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.setView(dialogView);
         alertDialog.show();
 
+        InputMethodManager imm = (InputMethodManager)this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
     }
 
     public void searchFlights(View view) {
@@ -119,9 +126,12 @@ public class MainActivity extends AppCompatActivity {
             model.setmSource(actSource.getText().toString());
         if (!TextUtils.isEmpty(actDesignation.getText().toString()))
             model.setmDestination(actDesignation.getText().toString());
-        if (!TextUtils.isEmpty(txtDate.getText().toString()))
+        if (!TextUtils.isEmpty(txtDate.getText().toString())) {
             model.setmTraveldate(txtDate.getText().toString());
+            AppData.setTraveldate(txtDate.getText().toString());
+        }
         model.setmAdultCount(1);
+        AppData.setAdultCount("1");
         model.setmChildCount(0);
         model.setmTravelClass(strClass);
         model.setIndianResient(true);

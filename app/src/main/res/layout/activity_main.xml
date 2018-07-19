@@ -35,12 +35,13 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:padding="5dp"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@mipmap/flighttakeoff" />
+                            android:src="@drawable/departures" />
 
                         <AutoCompleteTextView
                             android:id="@+id/actSource"
@@ -65,12 +66,14 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:padding="5dp"
+
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@mipmap/flightland" />
+                            android:src="@drawable/arrivals" />
 
                         <AutoCompleteTextView
                             android:id="@+id/actDestination"

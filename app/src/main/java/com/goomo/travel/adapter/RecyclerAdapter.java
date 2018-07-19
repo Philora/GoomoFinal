@@ -30,16 +30,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        final FlightSearchData myPojo= listPojo.get(position);
-        holder.departure.setText(myPojo.getmDeparture());
-        holder.arrival.setText(myPojo.getmArrival());
-
-        holder.origin.setText(myPojo.getmOrigin());
-        holder.dest.setText(myPojo.getmDestination());
-        holder.airlines.setText(myPojo.getmAirlineCode());
-        holder.duration.setText(myPojo.getmDuration());
-
-//        holder.price.setText(myPojo.getmPrice());
+        final FlightSearchData searchData= listPojo.get(position);
+        holder.departure.setText(searchData.getmDeparture());
+        holder.arrival.setText(searchData.getmArrival());
+        holder.origin.setText(searchData.getmOrigin());
+        holder.dest.setText(searchData.getmDestination());
+        holder.airlines.setText(searchData.getmAirlineCode());
+        holder.duration.setText(searchData.getmDuration());
+        holder.price.setText(searchData.getmPrice());
+        holder.stops.setText(searchData.getmNoOfStops());
     }
 
     @Override
@@ -49,7 +48,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView departure, arrival, origin, dest, airlines , duration, price;
+        TextView departure, arrival, origin, dest, airlines , duration, price,stops;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -60,6 +59,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             airlines = (TextView) itemView.findViewById(R.id.txtAirlines);
             duration = (TextView) itemView.findViewById(R.id.txt_hours);
             price = (TextView) itemView.findViewById(R.id.txtPrice);
+            stops = (TextView) itemView.findViewById(R.id.txtStops);
         }
     }
 }

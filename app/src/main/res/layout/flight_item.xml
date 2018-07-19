@@ -8,17 +8,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFF"
         android:gravity="center"
         android:orientation="horizontal"
-        android:background="#FFF"
         android:padding="5dp"
         android:weightSum="4">
 
         <ImageView
             android:id="@+id/imgPlane"
             android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="0.7"
+            android:layout_height="60dp"
+            android:layout_weight="0.8"
             android:src="@drawable/plane" />
 
         <LinearLayout
@@ -29,30 +29,35 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
 
                 <TextView
                     android:id="@+id/txtStartTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:text="11:10" />
+                    android:text="11:10"
+                    android:gravity="center"
+                    android:textColor="@android:color/black" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="⎯⎯⚫⎯⎯"
+                    android:gravity="center"
                     android:textColor="@android:color/black"
-                    android:text="-----"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtEndTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:text="23:35" />
+                    android:text="23:35"
+                    android:gravity="center"
+                    android:textColor="@android:color/black" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -61,43 +66,60 @@
                     android:id="@+id/txtStops"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="No Stop"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚫"
                     android:textColor="@android:color/black"
-                    android:text="No Stop" />
+                    android:textStyle="bold" />
+
 
                 <TextView
                     android:id="@+id/txt_hours"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="12h 25m"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚫"
                     android:textColor="@android:color/black"
-                    android:text="  12h 25m ." />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtOrigin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:text="BOM" />
+                    android:text="BOM"
+                    android:textColor="@android:color/black" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="⚊"
                     android:textColor="@android:color/black"
-                    android:text="-----"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtDestination"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:text="DEL" />
+                    android:text="DEL"
+                    android:textColor="@android:color/black" />
 
             </LinearLayout>
+
             <TextView
                 android:id="@+id/txtAirlines"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="Air India" />
+                android:text="Air India"
+                android:textColor="@android:color/black" />
 
         </LinearLayout>
 
@@ -105,9 +127,9 @@
             android:id="@+id/txtPrice"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:layout_weight="1"
-            android:text="Rs. 7984" />
+            android:layout_weight="0.9"
+            android:text="Rs. 7984"
+            android:textColor="@android:color/black" />
 
     </LinearLayout>
 </RelativeLayout>

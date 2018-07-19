@@ -7,8 +7,9 @@ public class FlightSearchData {
     String mOrigin;
     String mDestination;
     String mDuration;
-    Integer mPrice;
+    String mPrice;
     String mAirlineCode;
+    String mNoOfStops;
 
     public String getmDeparture() {
         return mDeparture;
@@ -55,11 +56,11 @@ public class FlightSearchData {
         return this;
     }
 
-    public Integer getmPrice() {
+    public String getmPrice() {
         return mPrice;
     }
 
-    public FlightSearchData setmPrice(Integer mPrice) {
+    public FlightSearchData setmPrice(String mPrice) {
         this.mPrice = mPrice;
         return this;
     }
@@ -70,6 +71,15 @@ public class FlightSearchData {
 
     public FlightSearchData setmAirlineCode(String mAirlineCode) {
         this.mAirlineCode = mAirlineCode;
+        return this;
+    }
+
+    public String getmNoOfStops() {
+        return mNoOfStops;
+    }
+
+    public FlightSearchData setmNoOfStops(String mNoOfStops) {
+        this.mNoOfStops = mNoOfStops;
         return this;
     }
 }

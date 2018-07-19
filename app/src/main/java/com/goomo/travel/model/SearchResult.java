@@ -14,7 +14,7 @@ public class SearchResult {
 
     private List<Flight> flights;
 
-    private List<Pricing> pricings;
+    private Pricing pricing;
 
     public String getOrigin() {
         return origin;
@@ -52,12 +52,12 @@ public class SearchResult {
         return this;
     }
 
-    public List<Pricing> getPricings() {
-        return pricings;
+    public Pricing getPricing() {
+        return pricing;
     }
 
-    public SearchResult setPricings(List<Pricing> pricings) {
-        this.pricings = pricings;
+    public SearchResult setPricing(Pricing pricing) {
+        this.pricing = pricing;
         return this;
     }
 

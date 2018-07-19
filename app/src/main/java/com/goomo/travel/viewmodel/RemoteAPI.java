@@ -2,6 +2,7 @@ package com.goomo.travel.viewmodel;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.util.Log;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+
 
 import util.AppData;
 
@@ -45,9 +47,14 @@ public class RemoteAPI {
 
             @Override
             public void onResponse(JSONObject response) {
-                SearchTrackResponse searchTrackResponse = gson.fromJson(response.toString(), SearchTrackResponse.class);
+                final SearchTrackResponse searchTrackResponse = gson.fromJson(response.toString(), SearchTrackResponse.class);
                 Log.d(TAG, "onResponse: "+searchTrackResponse.getMeta().getSearch_track_id());
-                flightResultApi(searchTrackResponse.getMeta().getSearch_track_id());
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        flightResultApi(searchTrackResponse.getMeta().getSearch_track_id());
+                    }
+                }, 1000);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -104,7 +111,7 @@ public class RemoteAPI {
                 FlightSearchResponse responseData = gson.fromJson(response.toString(), FlightSearchResponse.class);
                 AppData.setData(responseData);
                 context.startActivity(new Intent(context, FlightResultsActivity.class));
-                Log.d(TAG, "goomo" + responseData.getMeta().getDestination());
+                Log.d(TAG, "flightResultApi() " + responseData.getResults().size());
 
 
             }

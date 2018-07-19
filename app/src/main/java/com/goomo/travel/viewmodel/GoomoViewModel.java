@@ -18,10 +18,6 @@ public class GoomoViewModel extends AndroidViewModel {
 
     }
 
-    public LiveData<List<FlightSearchModel>> getAll() {
-        return listLiveData;
-    }
-
     public void searchFlights(FlightSearchModel data) {
         remoteSource.searchFlightApi(
                 data.getmSource(),
