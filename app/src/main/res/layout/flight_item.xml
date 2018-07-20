@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="2dp"
-    android:background="#cccccc">
+    android:background="@color/activity_bg">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,14 +37,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="11:10"
+                    android:text="@string/departure"
                     android:textSize="17dp"
                     android:textStyle="bold"
                     android:textColor="@color/sourceText" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" ── "
+                    android:text="@string/da_space"
+                    android:layout_margin="2dp"
                     android:textSize="17dp"
                     android:gravity="top"
                     android:textColor="@color/sourceText"/>
@@ -54,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="23:35"
+                    android:text="@string/arrival"
                     android:textSize="17dp"
                     android:textStyle="bold"
                     android:textColor="@color/sourceText" />
@@ -70,14 +71,14 @@
                     android:id="@+id/txtStops"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No Stop"
+                    android:text="@string/nonstop"
                     android:textSize="13dp"
                     android:textColor="@color/stopText" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="•"
+                    android:text="@string/dot"
                     android:padding="2dp"
                     android:textSize="15dp"
                     android:textColor="@color/stopText" />
@@ -87,14 +88,14 @@
                     android:id="@+id/txt_hours"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12h 25m"
+                    android:text="@string/travel_duration"
                     android:textSize="13dp"
                     android:textColor="@color/stopText" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="•"
+                    android:text="@string/dot"
                     android:padding="2dp"
                     android:textSize="15dp"
                     android:textColor="@color/stopText" />
@@ -103,14 +104,14 @@
                     android:id="@+id/txtOrigin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="BOM"
+                    android:text="@string/origin"
                     android:textSize="13dp"
                     android:textColor="@color/stopText" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="⚊"
+                    android:text="@string/space"
                     android:textSize="13dp"
                     android:textColor="@color/stopText" />
 
@@ -118,7 +119,7 @@
                     android:id="@+id/txtDestination"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DEL"
+                    android:text="@string/destination"
                     android:textSize="13dp"
                     android:textColor="@color/stopText" />
 
@@ -128,7 +129,7 @@
                 android:id="@+id/txtAirlines"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Air India"
+                android:text="@string/airplane_code"
                 android:textSize="14dp"
                 android:textColor="@color/planeText" />
 
@@ -141,13 +142,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rs "
+                android:text="@string/rs_text"
                 android:textColor="@android:color/black" />
             <TextView
                 android:id="@+id/txtPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="7984"
+                android:text="@string/rs_value"
                 android:textSize="16dp"
                 android:textStyle="bold"
                 android:textColor="@android:color/black" />

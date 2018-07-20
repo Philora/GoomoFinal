@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import util.AppData;
+import com.goomo.travel.util.AppData;
 
 public class FlightResultsActivity extends AppCompatActivity {
     private static final String TAG = "FlightResultsActivity";

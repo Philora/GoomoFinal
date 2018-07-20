@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Goomo</string>
+
+    <string name="currentDate">2018-07-20</string>
+    <string name="adult">1 Adult</string>
+    <string name="classType">ECONOMY</string>
+    <string name="search">Search</string>
+    <string name="departure">11:30</string>
+    <string name="arrival">23:35</string>
+    <string name="da_space">──</string>
+    <string name="nonstop">No Stop</string>
+    <string name="dot">•</string>
+    <string name="travel_duration">12h 25m</string>
+    <string name="origin">BOM</string>
+    <string name="space">⚊</string>
+    <string name="destination">DEL</string>
+    <string name="airplane_code">Air India</string>
+    <string name="rs_text">Rs.</string>
+    <string name="rs_value">7984</string>
+    <string name="departure_text">DEPARTURE</string>
+    <string name="duration">DURATION</string>
+    <string name="price">PRICE</string>
 </resources>

@@ -1,4 +1,4 @@
-package util;
+package com.goomo.travel.util;
 
 import com.goomo.travel.model.FlightSearchResponse;
 

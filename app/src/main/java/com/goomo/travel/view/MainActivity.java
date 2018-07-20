@@ -3,12 +3,10 @@ package com.goomo.travel.view;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
@@ -29,21 +27,20 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import util.AppData;
+import com.goomo.travel.util.AppData;
 
 public class MainActivity extends AppCompatActivity {
 
-    AutoCompleteTextView actSource, actDesignation;
     private static final String TAG = "MainActivity";
-    String[] airpot1 = { "CCU", "BLR", "BOM", "DEL", "GOI", "HYD","IXC", "JAI", "MAA", "PNQ" };
-    String[] airpot2 = { "CCU", "BLR", "BOM", "DEL", "GOI", "HYD","IXC", "JAI", "MAA", "PNQ" };
+    AutoCompleteTextView actSource, actDesignation;
+    String[] airpot1 = {"CCU", "BLR", "BOM", "DEL", "GOI", "HYD", "IXC", "JAI", "MAA", "PNQ"};
+    String[] airpot2 = {"CCU", "BLR", "BOM", "DEL", "GOI", "HYD", "IXC", "JAI", "MAA", "PNQ"};
     TextView txtDate, txtAdult, txtClass;
     ArrayAdapter<String> adapter1, adapter2;
     Calendar calendar;
     ImageView imgSwap;
-    private GoomoViewModel goomoViewModel;
     RequestQueue requestQueue;
-    String strSource, strDest, strDate, strAdult, strClass;
+    private GoomoViewModel goomoViewModel;
     private Gson gson;
 
     @Override
@@ -63,13 +60,10 @@ public class MainActivity extends AppCompatActivity {
 
         actSource = (AutoCompleteTextView) findViewById(R.id.actSource);
         actDesignation = (AutoCompleteTextView) findViewById(R.id.actDestination);
-
         actSource.setThreshold(1);
         actDesignation.setThreshold(1);
-
         actSource.setAdapter(adapter1);
         actDesignation.setAdapter(adapter2);
-
         actSource.setTextColor(Color.BLACK);
         actDesignation.setTextColor(Color.BLACK);
 
@@ -81,12 +75,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        SimpleDateFormat dtformat = new SimpleDateFormat("yyyy-MM-dd");
-        Calendar c = Calendar.getInstance();
-        strDate= dtformat.format(c.getTime());
-        txtDate.setText(strDate);
-
+        SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        String formattedDate = dateformat.format(calendar.getTime());
+        txtDate.setText(formattedDate);
     }
 
     public void datePicker(final View view) {
@@ -110,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.setView(dialogView);
         alertDialog.show();
 
-        InputMethodManager imm = (InputMethodManager)this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        InputMethodManager imm = (InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
     }
@@ -122,9 +114,15 @@ public class MainActivity extends AppCompatActivity {
         FlightSearchModel model = new FlightSearchModel();
         if (!TextUtils.isEmpty(actSource.getText().toString())) {
             model.setmSource(actSource.getText().toString());
-        } if(!TextUtils.isEmpty(actDesignation.getText().toString())) {
+        } else {
+            actSource.setError("Enter Source value");
+        }
+        if (!TextUtils.isEmpty(actDesignation.getText().toString())) {
             model.setmDestination(actDesignation.getText().toString());
-        } if (!TextUtils.isEmpty(txtDate.getText().toString())) {
+        } else {
+            actDesignation.setError("Enter Designation value");
+        }
+        if (!TextUtils.isEmpty(txtDate.getText().toString())) {
             model.setmTraveldate(txtDate.getText().toString());
             AppData.setTraveldate(txtDate.getText().toString());
         }

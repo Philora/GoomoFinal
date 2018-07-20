@@ -22,7 +22,7 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 
 
-import util.AppData;
+import com.goomo.travel.util.AppData;
 
 public class RemoteAPI {
     private static final String TAG = "RemoteAPI";

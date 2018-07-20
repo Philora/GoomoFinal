@@ -18,11 +18,11 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="1dp"
             android:layout_weight="1"
-            android:background="#FFF"
+            android:background="@color/white"
             android:textColor="@color/tabText"
             android:gravity="center"
             android:padding="10dp"
-            android:text="DEPARTURE" />
+            android:text="@string/departure_text" />
 
         <TextView
             android:layout_width="0dp"
@@ -31,10 +31,10 @@
             android:layout_marginRight="1dp"
             android:layout_weight="1"
             android:textColor="@color/tabText"
-            android:background="#FFF"
+            android:background="@color/white"
             android:gravity="center"
             android:padding="10dp"
-            android:text="DURATION" />
+            android:text="@string/duration" />
 
         <TextView
             android:layout_width="0dp"
@@ -42,12 +42,12 @@
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
             android:layout_weight="1"
-            android:background="#FFF"
+            android:background="@color/white"
             android:gravity="center"
             android:padding="10dp"
             android:textColor="@color/priceText"
             android:drawableRight="@drawable/downarrow"
-            android:text="PRICE" />
+            android:text="@string/price" />
 
     </LinearLayout>
 

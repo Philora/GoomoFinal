@@ -9,7 +9,7 @@ import com.goomo.travel.model.FlightSearchModel;
 import java.util.List;
 
 public class GoomoViewModel extends AndroidViewModel {
-    private LiveData<List<FlightSearchModel>> listLiveData;
+
     private RemoteAPI remoteSource;
 
     public GoomoViewModel(Application application) {

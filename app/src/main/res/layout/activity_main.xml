@@ -119,7 +119,7 @@
                     android:background="@android:color/transparent"
                     android:onClick="datePicker"
                     android:padding="5dp"
-                    android:text="2018-07-20"
+                    android:text="@string/currentDate"
                     android:textColor="@android:color/black"
                     android:textSize="17dp" />
             </LinearLayout>
@@ -141,7 +141,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="1 Adult"
+                android:text="@string/adult"
                 android:textColor="@android:color/black"
                 android:textSize="17dp" />
 
@@ -152,7 +152,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="ECONOMY"
+                android:text="@string/classType"
                 android:drawableRight="@mipmap/dropdown"
                 android:textColor="@android:color/black"
                 android:textSize="17dp" />
@@ -168,6 +168,6 @@
         android:background="@drawable/rounder__button_bg"
         android:elevation="5dp"
         android:onClick="searchFlights"
-        android:text="Search" />
+        android:text="@string/search" />
 
 </RelativeLayout>
