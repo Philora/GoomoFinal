@@ -54,7 +54,7 @@ public class RemoteAPI {
                     public void run() {
                         flightResultApi(searchTrackResponse.getMeta().getSearch_track_id());
                     }
-                }, 1000);
+                }, 2000);
             }
         }, new Response.ErrorListener() {
             @Override
